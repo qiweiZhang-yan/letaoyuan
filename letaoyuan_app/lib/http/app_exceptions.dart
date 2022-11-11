@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:letaoyuan_app/common/widget/commonWidget/toast.dart';
+
+import '../common/widget/common_widget/toast.dart';
 
 /// 自定义异常
 class AppException implements Exception {

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:letaoyuan_app/common/widget/commonWidget/toast.dart';
 
+import '../../common/widget/common_widget/toast.dart';
 import '../app_exceptions.dart';
 // 异常
 
