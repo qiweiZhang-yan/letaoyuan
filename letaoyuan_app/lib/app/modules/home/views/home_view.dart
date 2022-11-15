@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:letaoyuan_app/common/values/colors.dart';
-
+import 'package:nb_utils/nb_utils.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+import '../../../../common/widget/common_widget/loading_widget.dart';
+import '../../tabs/BookshelfScene/views/bookshelf_scene_view.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -15,7 +18,7 @@ class HomeView extends GetView<HomeController> {
       return Scaffold(
         body: IndexedStack(
           children: <Widget>[
-            BookshelfScene(),
+            BookshelfSceneView(),
             HomeScene(),
             MeScene(),
           ],
@@ -40,14 +43,6 @@ class HomeView extends GetView<HomeController> {
   }
 }
 
-class BookshelfScene extends StatelessWidget {
-  const BookshelfScene({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(child: Text('首页'),);
-  }
-}
 class HomeScene extends StatelessWidget {
   const HomeScene({Key? key}) : super(key: key);
 

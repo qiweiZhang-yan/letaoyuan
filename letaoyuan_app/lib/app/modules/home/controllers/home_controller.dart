@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../../../http/httpUtils.dart';
 
 class HomeController extends GetxController {
@@ -11,7 +11,6 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    HttpUtils.get('home_excellent');
   }
 
   @override

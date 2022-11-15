@@ -1,0 +1,33 @@
+{
+  "buttons": {
+    "login": "登錄",
+    "sign_in": "註冊",
+    "logout": "註銷",
+    "sign_in_fb": "用 Facebook 登錄",
+    "sign_in_google": "用 Google 登錄",
+    "sign_in_apple": "用 Apple 登錄",
+    "login_name_hint": "手機號碼",
+    "login_get_sms": "發送驗證碼",
+    "login_no_get_sms": "%s內不能重新獲取",
+    "login_input_sms_hint": "輸入驗證碼",
+    "linear_gradient_or": "或",
+    "login_success": "登錄成功",
+    "camera_per_dialog": "您需要開啟攝像機權限，是否去開啟？",
+    "photo_cut": "裁剪",
+    "photo_shot": "拍攝",
+    "photo_select": "從相冊中選擇",
+    "local_save_dialog": "您需要開啟存儲權限，是否去开启？",
+    "camera_confirm": "發送",
+    "camera_shooting_tips": "輕觸拍照",
+    "camera_shooting_with_recording_tips": "輕觸拍照，長按攝像",
+    "camera_shooting_only_recording_tips": "長按攝像",
+    "camera_shooting_tap_recording_tips": "輕觸摄像",
+    "camera_load_failed": "加載失敗",
+    "camera_action_manually_focus_hint": "手動聚焦",
+    "camera_action_preview_hint": "預覽",
+    "camera_action_record_hint": "錄像",
+    "camera_action_shoot_hint": "拍照",
+    "camera_action_shooting_button_tooltip": "拍照按鈕",
+    "camera_action_stop_recording_hint": "停止錄像"
+  }
+}

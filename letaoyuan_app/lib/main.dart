@@ -32,10 +32,14 @@ void main() async {
               height: 0,
               noDataText: "",
             ),
-            hideFooterWhenNotFull: true,
-            headerTriggerDistance: 80,
-            maxOverScrollExtent: 100,
-            footerTriggerDistance: 0,
+            headerTriggerDistance: 80.0,        // 头部触发刷新的越界距离
+            springDescription:SpringDescription(stiffness: 170, damping: 16, mass: 1.9),         // 自定义回弹动画,三个属性值意义请查询flutter api
+            maxOverScrollExtent :100, //头部最大可以拖动的范围,如果发生冲出视图范围区域,请设置这个属性
+            maxUnderScrollExtent:100, // 底部最大可以拖动的范围
+            enableScrollWhenRefreshCompleted: true, //这个属性不兼容PageView和TabBarView,如果你特别需要TabBarView左右滑动,你需要把它设置为true
+            enableLoadingWhenFailed : true, //在加载失败的状态下,用户仍然可以通过手势上拉来触发加载更多
+            hideFooterWhenNotFull: false, // Viewport不满一屏时,禁用上拉加载更多功能
+            enableBallisticLoad: true, // 可以通过惯性滑动触发加载更多
             child: GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: "Novel",
@@ -45,7 +49,7 @@ void main() async {
               initialRoute: AppPages.INITIAL,
               getPages: AppPages.routes,
               translationsKeys: AppTranslation.translations,
-              locale: const Locale('zh', 'CN'),
+              locale: const Locale('zh', 'HK'),
               // 将会按照此处指定的语言翻译
               fallbackLocale: const Locale('en', 'US'),
               // 添加一个回调语言选项，以备上面指定的语言翻译不存在
@@ -56,12 +60,14 @@ void main() async {
                   child: FlutterEasyLoading(child: widget),
                 );
               },
-              localizationsDelegates: const [
-                GlobalMaterialLocalizations.delegate,
+              localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+                // this line is important
+                RefreshLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,
-                //一定要配置,否则iphone手机长按编辑框有白屏卡着的bug出现
+                GlobalMaterialLocalizations.delegate,
               ],
+
             ),
           );
         },
@@ -71,7 +77,7 @@ void main() async {
 }
 
 refreshIcon() {
-  return LoadingWidget;
+  return LoadingWidget(stop: false,);
 }
 
 Future<void> initServices() async {

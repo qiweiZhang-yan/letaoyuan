@@ -6,6 +6,8 @@ import '../modules/Welcome/bindings/welcome_binding.dart';
 import '../modules/Welcome/views/welcome_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/tabs/BookshelfScene/bindings/bookshelf_scene_binding.dart';
+import '../modules/tabs/BookshelfScene/views/bookshelf_scene_view.dart';
 
 part 'app_routes.dart';
 
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOKSHELF_SCENE,
+      page: () => const BookshelfSceneView(),
+      binding: BookshelfSceneBinding(),
     ),
   ];
 }

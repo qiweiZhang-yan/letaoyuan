@@ -199,3 +199,69 @@ class IconWithLabelButton extends StatelessWidget {
     );
   }
 }
+
+class GradientButton extends StatefulWidget {
+  final List<Color> colors;
+  final String? text;
+  final TextStyle? textStyle;
+  final double? width;
+  final double? height;
+  final Function()? onPressed;
+  final Alignment begin;
+  final Alignment end;
+  final double circular;
+  final Color? disabledColor;
+  final List<BoxShadow>? boxShadow;
+
+  GradientButton(
+      {Key? key,
+        required this.colors,
+        this.text,
+        this.textStyle ,
+        this.width,
+        this.height,
+        this.onPressed,
+        this.begin = Alignment.topCenter,
+        this.end = Alignment.bottomCenter,
+        this.disabledColor,
+        this.boxShadow ,
+        this.circular = 50.0})
+      : super(key: key);
+
+  @override
+  _GradientButtonState createState() => _GradientButtonState();
+}
+
+class _GradientButtonState extends State<GradientButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: widget.width,
+      height: widget.height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(widget.circular), //圆角
+        gradient: widget.onPressed == null
+            ? null
+            : LinearGradient(
+          begin: widget.begin,
+          end: widget.end,
+          colors: widget.colors,
+        ),
+        boxShadow: widget. boxShadow,
+      ),
+      child: MaterialButton(
+        disabledColor: widget.disabledColor ?? Colors.grey,
+        disabledTextColor:Colors.grey[200],
+        padding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(widget.circular))),
+        onPressed: widget.onPressed,
+        // disabledColor: Color(0xff93b8fd),
+        child: Text(
+          widget.text ?? '',
+          style: widget.textStyle,
+        ),
+      ),
+    );
+  }
+}
